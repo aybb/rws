@@ -1,33 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { Button } from '../components/button';
 import { Display } from '../components/display';
 
+import { increment, decrement } from '../actions/counter';
 
-export class IndexPage extends React.Component {
 
-  state = {
-    counter: 0,
-  };
+class IndexPage_ extends React.Component {
 
   increment = () => {
-    this.setState(({ counter }) => ({
-      counter: counter + 1,
-    }));
+    this.props.dispatch(increment);
   };
 
   decrement = () => {
-    this.setState(({ counter }) => ({
-      counter: counter - 1,
-    }));
+    this.props.dispatch(decrement);
   };
 
   render() {
     return (
       <div>
         <h1>Counter value:</h1>
-        <Display count={this.state.counter} />
+        <Display count={this.props.counter}/>
         <Button
           onClick={this.increment}
           label='Increment'
@@ -40,3 +34,8 @@ export class IndexPage extends React.Component {
     );
   }
 }
+
+
+export const IndexPage = connect(
+  state => ({ counter: state.counter })
+)(IndexPage_);
