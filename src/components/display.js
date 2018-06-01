@@ -2,5 +2,5 @@ import React from 'react';
 
 
 export const Display = (props) => (
-  <span>{props.count}</span>
+  <h2>{props.count}</h2>
 );

@@ -26,7 +26,8 @@ export class IndexPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Counter value {this.state.counter}</h1>
+        <h1>Counter value:</h1>
+        <Display count={this.state.counter} />
         <Button
           onClick={this.increment}
           label='Increment'
