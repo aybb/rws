@@ -3400,6 +3400,13 @@ qs@6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
+query-string@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.1.0.tgz#01e7d69f6a0940dac67a937d6c6325647aa4532a"
+  dependencies:
+    decode-uri-component "^0.2.0"
+    strict-uri-encode "^2.0.0"
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -4019,6 +4026,10 @@ stream-http@^2.7.2:
     to-arraybuffer "^1.0.0"
     xtend "^4.0.0"
 
+strict-uri-encode@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
+
 string-width@^1.0.1, string-width@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"
@@ -4295,7 +4306,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@^3.0.1:
+uuid@^3.0.1, uuid@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 

@@ -5,22 +5,18 @@ import {
 } from 'react-router-dom';
 
 import { IndexPage } from './pages/index';
-import { AboutPage } from './pages/about';
-import { GreetPage } from './pages/greet';
+import { TodoPage } from './pages/todo';
 
 
 const routes = [
   {
     path: '/',
     component: IndexPage,
+    exact: true,
   },
   {
-    path: '/about',
-    component: AboutPage,
-  },
-  {
-    path: '/greet/:username',
-    component: GreetPage,
+    path: '/todo',
+    component: TodoPage,
   },
 ];
 
@@ -31,7 +27,6 @@ export const Router = () => (
       {
         routes.map((route, idx) => (
           <Route
-            exact
             key={idx}
             {...route}
           />

@@ -1,35 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { Button } from '../components/button';
-import { Display } from '../components/display';
+import { TodoListItem } from '../components/todo_list_item';
 
-import { increment, decrement } from '../actions/counter';
+import { deleteTodo } from '../actions/todo';
 
 
 class IndexPage_ extends React.Component {
 
-  increment = () => {
-    this.props.dispatch(increment);
+  onEdit = todoId => {
+    console.log(this.props.location);
+    this.props.history.push(`/todo?todoId=${todoId}`)
   };
 
-  decrement = () => {
-    this.props.dispatch(decrement);
+  onDelete = todoId => {
+    this.props.dispatch(deleteTodo({ id: todoId }))
   };
 
   render() {
+    const { todos } = this.props;
     return (
       <div>
-        <h1>Counter value:</h1>
-        <Display count={this.props.counter}/>
-        <Button
-          onClick={this.increment}
-          label='Increment'
-        />
-        <Button
-          onClick={this.decrement}
-          label='Decrement'
-        />
+        <h1>Another TODO list</h1>
+        <h3><Link to={'/todo'}>Add todo</Link></h3>
+        <ul>
+          {
+            Object.keys(todos).map(todoId => (
+              <TodoListItem
+                key={todoId}
+                {...todos[todoId]}
+                onEdit={() => this.onEdit(todoId)}
+                onDelete={() => this.onDelete(todoId)}
+              />
+            ))
+          }
+        </ul>
       </div>
     );
   }
@@ -37,5 +43,5 @@ class IndexPage_ extends React.Component {
 
 
 export const IndexPage = connect(
-  state => ({ counter: state.counter })
+  state => ({ todos: state.todos })
 )(IndexPage_);
