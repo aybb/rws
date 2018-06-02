@@ -37,6 +37,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         todos,
       };
+    case 'LOAD_TODOS_SUCCESS':
+      return {
+        ...state,
+        todos: action.payload,
+      };
     default:
       return state;
   }

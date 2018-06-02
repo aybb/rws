@@ -32,4 +32,26 @@ describe('Test TodoPage', () => {
     ]);
     expect(props.history.push.mock.calls[0]).toEqual(['/']);
   });
+
+  it('should render todo page / edit todo mode', () => {
+    const props = {
+      todoObject: {
+        name: '1',
+        description: '1',
+        done: false,
+        id: '1',
+      },
+      dispatch: jest.fn(),
+      history: { push: jest.fn() },
+    };
+    const wrapper = shallow(<TodoPage_ {...props}/>);
+    expect(wrapper.state()).toEqual(props.todoObject);
+    expect(wrapper.find('input.todo-done')).toHaveLength(1);
+    wrapper.find('input.todo-done').simulate('change');
+    expect(wrapper.state('done')).toBe(true);
+    wrapper.find('button.todo-submit').simulate('click');
+    expect(props.dispatch.mock.calls[0]).toEqual([
+      updateTodo({ name: '1', description: '1', done: true, id: '1' })
+    ]);
+  })
 });

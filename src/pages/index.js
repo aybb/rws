@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 
 import { TodoListItem } from '../components/todo_list_item';
 
-import { deleteTodo } from '../actions/todo';
+import { deleteTodo, loadTodos } from '../actions/todo';
 
 
 export class IndexPage_ extends React.Component {
+
+  componentDidMount() {
+    this.props.dispatch(loadTodos);
+  };
 
   onEdit = todoId => {
     this.props.history.push(`/todo?todoId=${todoId}`)
