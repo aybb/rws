@@ -12,7 +12,7 @@ const INITIAL_TODO = {
 };
 
 
-class TodoPage_ extends React.Component {
+export class TodoPage_ extends React.Component {
 
   constructor(props) {
     super(props);
@@ -40,6 +40,7 @@ class TodoPage_ extends React.Component {
         <div>
           <span>Name</span>
           <input
+            className='todo-name'
             value={this.state.name}
             onChange={e => this.onFieldChange('name', e.target.value)}
           />
@@ -47,6 +48,7 @@ class TodoPage_ extends React.Component {
         <div>
           <span>Description</span>
           <input
+            className='todo-desc'
             value={this.state.description}
             onChange={e => this.onFieldChange('description', e.target.value)}
           />
@@ -56,6 +58,7 @@ class TodoPage_ extends React.Component {
           <div>
             <span>Done</span>
             <input
+              className='todo-done'
               type="checkbox"
               checked={this.state.done}
               onChange={() => this.onFieldChange('done', !this.state.done)}
@@ -63,6 +66,7 @@ class TodoPage_ extends React.Component {
           </div> || null
         }
         <button
+          className='todo-submit'
           onClick={this.onSubmit}
         >
           Save

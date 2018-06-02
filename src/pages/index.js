@@ -7,10 +7,9 @@ import { TodoListItem } from '../components/todo_list_item';
 import { deleteTodo } from '../actions/todo';
 
 
-class IndexPage_ extends React.Component {
+export class IndexPage_ extends React.Component {
 
   onEdit = todoId => {
-    console.log(this.props.location);
     this.props.history.push(`/todo?todoId=${todoId}`)
   };
 
@@ -24,7 +23,7 @@ class IndexPage_ extends React.Component {
       <div>
         <h1>Another TODO list</h1>
         <h3><Link to={'/todo'}>Add todo</Link></h3>
-        <ul>
+        <ul className='todo-list'>
           {
             Object.keys(todos).map(todoId => (
               <TodoListItem
